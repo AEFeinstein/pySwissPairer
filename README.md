@@ -10,14 +10,10 @@ This algorithm performs a depth-first search on a tree of potential pairings. Ea
 
 1. Start by creating the root `PairingTreeNode`, which has a empty pairing and an empty list of paired players.
 1. Sort this `PairingTreeNode`'s list of unpaired players by points, high to low.
-
-- If there are no players to pair, then all pairings have been found and the pairings are returned.
-
+    - If there are no players to pair, then all pairings have been found and the pairings are returned.
 1. Choose the player with the highest point total.
 1. Make a list of players which the chosen player has not been paired against yet (potential pairings), and sort that list by points, high to low.
-
-- If there are no valid pairings, this is an invalid branch of the tree. Return back up the tree and try the next potential pairing.
-
+    - If there are no valid pairings, this is an invalid branch of the tree. Return back up the tree and try the next potential pairing.
 1. Iterate over the list of potential pairings and for each pairing:
 1. Create a `Pairing` between those two players, add it to a `PairingTreeNode` and add the node to the tree as a child of the current `PairingTreeNode`.
 1. Move to the newly created `PairingTreeNode` and recurse to step 2 to find that node's children. This makes the search depth-first.
